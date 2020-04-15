@@ -1,0 +1,39 @@
+{
+    "name": "Calibre",
+    "version": "0.1",
+    "slug": "calibre",
+    "description": "Calibre",
+    "startup": "after",
+    "boot": "auto",
+    "arch": ["armv7", "armhf"],
+    "ports": {"8083/tcp": 8083,
+	          "8080/tcp": 8080,
+              "8080/udp": 8080
+             },
+    "map": ["config:rw", "ssl:rw", "addons:rw", "share:rw", "backup:rw"],
+    "hassio_api": true,
+    "homeassistant_api": true,
+    "options": {
+      "start_calibre_server": false,
+      "ebook_path": "/backup/calibre/books/",
+      "certfile": "fullchain.pem",
+      "keyfile": "privkey.pem",
+      "require_certificate": false,
+      "userdb": "/backup/calibre/books/users.sqlite",
+      "require_user": false
+    },
+    "schema": {
+      "start_calibre_server": "bool",
+      "ebook_path": "str",
+      "certfile": "str",
+      "keyfile": "str",
+      "require_certificate": "bool",
+      "userdb": "str",
+      "require_user": "bool"
+    },
+
+    "webui": "http://[HOST]:[PORT:8083]",
+
+    "panel_icon": "mdi:book-open-page-variant",
+    "panel_title": "Calibre"
+}
