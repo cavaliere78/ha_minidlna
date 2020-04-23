@@ -31,9 +31,6 @@
       "userdb": "str",
       "require_user": "bool"
     },
-
-    "webui": "http://[HOST]:[PORT:8083]",
-
     "panel_icon": "mdi:book-open-page-variant",
     "panel_title": "Calibre"
 }
