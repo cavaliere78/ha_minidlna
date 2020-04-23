@@ -6,6 +6,8 @@ FROM arm32v7/ubuntu:eoan
 # set version label
 ARG BUILD_DATE
 ARG VERSION
+ARG BUILD_VERSION
+ARG BUILD_ARCH
 # Add env
 ENV LANG C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive 

@@ -5,7 +5,7 @@
     "description": "Calibre",
     "startup": "after",
     "boot": "auto",
-    "arch": ["armv7", "armhf"],
+    "arch": ["armv7"],
     "ports": {"8083/tcp": 8083,
 	          "8080/tcp": 8080,
               "8080/udp": 8080
@@ -31,7 +31,7 @@
       "userdb": "str",
       "require_user": "bool"
     },
-    "image": "cavaliere78/image-{arch}-addon-calibre:latest",
+    "image": "cavaliere78/{arch}-addon-calibre",
     "panel_icon": "mdi:book-open-page-variant",
     "panel_title": "Calibre"
 }
