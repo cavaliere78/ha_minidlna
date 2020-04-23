@@ -1,6 +1,6 @@
 {
     "name": "Calibre",
-    "version": "0.1",
+    "version": "0.2",
     "slug": "calibre",
     "description": "Calibre",
     "startup": "after",
@@ -31,6 +31,7 @@
       "userdb": "str",
       "require_user": "bool"
     },
+    "image": "cavaliere78/addon-calibre:0.1",
     "panel_icon": "mdi:book-open-page-variant",
     "panel_title": "Calibre"
 }
