@@ -1,13 +1,14 @@
 {
     "name": "Calibre",
-    "version": "0.2",
+    "version": "0.3",
     "slug": "calibre",
     "description": "Calibre",
+    "url": "https://github.com/cavaliere78/calibre_web_plus",
     "startup": "after",
     "boot": "auto",
     "arch": ["armv7"],
     "ports": {"8083/tcp": 8083,
-	          "8080/tcp": 8080,
+              "8080/tcp": 8080,
               "8080/udp": 8080
              },
     "map": ["config:rw", "ssl:rw", "addons:rw", "share:rw", "backup:rw"],
