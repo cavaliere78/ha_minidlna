@@ -1,38 +1,36 @@
 {
     "name": "Calibre",
-    "version": "0.2",
+    "version": "0.3",
     "slug": "calibre",
     "description": "Calibre",
     "url": "https://github.com/cavaliere78/calibre_web_plus",
     "startup": "after",
     "boot": "auto",
     "arch": ["armv7"],
-    "ports": {"8083/tcp": 8083,
+    "ports": {
               "8080/tcp": 8080,
-              "8080/udp": 8080
+              "8080/udp": 8080,
+              "8083/tcp": 8083
              },
     "map": ["config:rw", "ssl:rw", "addons:rw", "share:rw", "backup:rw"],
     "hassio_api": true,
     "homeassistant_api": true,
     "options": {
-      "start_calibre_server": false,
       "ebook_path": "/backup/calibre/books/",
-      "certfile": "fullchain.pem",
-      "keyfile": "privkey.pem",
-      "require_certificate": false,
       "userdb": "/backup/calibre/books/users.sqlite",
-      "require_user": false
+      "require_user": false,
+      "start_calibre_web": true
     },
     "schema": {
-      "start_calibre_server": "bool",
       "ebook_path": "str",
-      "certfile": "str",
-      "keyfile": "str",
-      "require_certificate": "bool",
       "userdb": "str",
-      "require_user": "bool"
+      "require_user": "bool",
+      "start_calibre_web": "bool"
     },
     "image": "cavaliere78/{arch}-addon-calibre",
+	"webui": "http://[HOST]:[PORT:8080]",
+	"ingress_port": 8080,
+	"ingress": true,
     "panel_icon": "mdi:book-open-page-variant",
     "panel_title": "Calibre"
 }
