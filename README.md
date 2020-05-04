@@ -1,23 +1,39 @@
-## Calibre server for hass.io with optional Calibre-web with ebook-convert
+## Calibre web for hass.io with optional Calibre server with ebook-convert
 ## Description
 
-This addon provide a container for hass.io with [Calibre server](https://calibre-ebook.com/) and [calibre-web](https://github.com/janeczku/calibre-web) so it is possible to use calibre ebook-convert into calibre-web configuration.
-The Calibre server is exposed using Ingress.
-The Calibre-web is exposed on port 8083.
+This addon provide a container for hass.io with [calibre-web](https://github.com/janeczku/calibre-web) and [Calibre server](https://calibre-ebook.com/) so it is possible to use calibre ebook-convert into calibre-web configuration.
+The Calibre web is exposed using Ingress.
+The Calibre server is exposed on port 8080.
 ## Installation
 
 Copy the url of this addon into "Supervisor" -> "Addon Store" -> "Add New repository URL" after install it.
+Copy your Calibe library in share/calibre/books/
 
 ## Configuration Calibre Server
-
 Add-on configuration:
 
 ```yaml
-ebook_path: /backup/calibre/books/
-userdb: /backup/calibre/books/users.sqlite
+proxy_user_header: X-User
+proxy_user: admin
+start_calibre_server: true
+ebook_path: /share/calibre/books/
+userdb: /share/calibre/books/users.sqlite
 require_user: true
-start_calibre_web: true
 ```
+
+
+### Option `proxy_user_header`
+Header used by Ingress for calibre web authentication
+Set a custom value and use it calibre web configuration:
+Check the box marked Allow Reverse Proxy Authentication and then fill in the text box that appears with the proxy_user_header value.
+
+### Option `proxy_user`
+User used by Infress for calibre web authentication
+Set a custom user. The user must exist in the Calibre database.
+
+### Option `start_calibre_server`
+
+Start Calibre server (HOST:8080) if true
 
 ### Option `ebook_path`
 
@@ -32,13 +48,10 @@ Note: the easiest way to create this file is use [calibre-server](https://manual
 
 Use the user DB for calibre server
 
-### Option `start_calibre_web`
-
-Start Calibre_web (HOST:8083) if true
-
 
 ## Configuration Calibre-web
-Opend calibre-web page (HOST:8083) and pergorm below steps:
-- set the path to calibre (in /backup/calibre/books/)
+Opend calibre-web page (HOST:8083) and perform below steps:
+- set the path to calibre (/share/calibre/books/)
 - use default admin/admin123 user passwd.
 - set the path to ebook-convert (/usr/bin/ebook-convert) 
+- set Allow Reverse Proxy Authentication and then fill in the text box that appears with the proxy_user_header value (X-User)
