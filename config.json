@@ -1,6 +1,6 @@
 {
     "name": "Calibre",
-    "version": "0.4",
+    "version": "0.5",
     "slug": "calibre",
     "description": "Calibre",
     "url": "https://github.com/cavaliere78/calibre_web_plus",
@@ -21,8 +21,7 @@
     ],
     "hassio_api": true,
     "homeassistant_api": false,
-    "host_network": false,
-    
+    "host_network": false,    
     "image": "cavaliere78/{arch}-addon-calibre",
 
     "options": {
