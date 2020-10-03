@@ -1,52 +1,33 @@
 {
-    "name": "Calibre",
-    "version": "0.5",
-    "slug": "calibre",
-    "description": "Calibre",
-    "url": "https://github.com/cavaliere78/calibre_web_plus",
+    "name": "Minidlna",
+    "version": "0.1",
+    "slug": "minidlna",
+    "description": "MiniDLNA",
+    "url": "https://github.com/cavaliere78/minidlna",
     "startup": "services",
     "boot": "auto",
-    "arch": ["armv7"],
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "ports": {
-              "8080/tcp": 8080,
-              "8083/tcp": 8083
-             },
-    "map": ["config:rw", "ssl:rw", "addons:rw", "share:rw", "backup:rw"],
-
+              "1900/udp": 1900
+             },	
+    "map": ["config:rw", "ssl:rw", "addons:rw", "share:rw", "backup:rw", "media:rw"],
     "privileged": [
       "NET_ADMIN"
     ],
     "devices": [
       "/dev/net/tun:/dev/net/tun:rwm"
     ],
-    "hassio_api": true,
-    "homeassistant_api": false,
-    "host_network": false,    
-    "image": "cavaliere78/{arch}-addon-calibre",
-
+    "host_network": true,
     "options": {
-      "proxy_user_header": "X-User",
-      "proxy_user": "admin",
-      "start_calibre_server": true,
-      "ebook_path": "/share/calibre/books/",
-      "userdb": "/share/calibre/books/users.sqlite",
-      "require_user": false
+      "media_dir": "/media;/share"
     },
     "schema": {
-      "proxy_user_header": "str",
-      "proxy_user": "str",
-      "start_calibre_server": "bool",	
-      "ebook_path": "str",
-      "userdb": "str",
-      "require_user": "bool"
+      "media_dir": "str"
     },
         "ingress_port": 9998,
 	"webui": "http://[HOST]:[PORT:9998]",
 	"ingress": true,
 
-    "panel_icon": "mdi:book-open-page-variant",
-    "panel_title": "Calibre",
-    "environment": {
-      "LOG_FORMAT": "{LEVEL}: {MESSAGE}"
-    }
+    "panel_icon": "mdi:dlna",
+    "panel_title": "MiniDLNA"
 }
