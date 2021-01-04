@@ -7,3 +7,7 @@
 ## 0.2
 
 - Fix repository link
+
+## 0.3
+
+- Add options

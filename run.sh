@@ -25,6 +25,6 @@ done
 
 sed -i "s/%%port%%/${ingress_port}/g" /etc/minidlna.conf
 
-
+OPTIONS="$(bashio::config 'options')"
 bashio::log.info "Starting MiniDLNA..."
-usr/sbin/minidlnad -S
+usr/sbin/minidlnad $OPTIONS
