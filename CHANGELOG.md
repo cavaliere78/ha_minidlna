@@ -11,3 +11,7 @@
 ## 0.3
 
 - Add options
+
+## 0.4
+
+- Fix config file for devices
