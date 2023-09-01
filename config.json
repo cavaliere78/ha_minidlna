@@ -6,6 +6,7 @@
     "url": "https://github.com/cavaliere78/ha_minidlna",
     "startup": "services",
     "boot": "auto",
+    "init": "false",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "ports": {
               "1900/udp": 1900
